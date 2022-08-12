@@ -112,6 +112,149 @@ router.post('/players', function (req, res) {
 })
 
 
+// WRITE A POST API TO THE ABOVE
+
+let persons=[
+  {
+    name: "PK",
+    age: 10,
+    votingstatus: false
+  },
+  {
+    name: "SK",
+    age: 20,
+    votingstatus: false
+
+  },
+  {
+    name: "AA",
+    age: 70,
+    votingstatus: false
+  },
+  {
+    name: "SC",
+    age:5,
+    votingstatus: false
+  },
+  {
+    name: "HO",
+    age:40,
+    votingstatus: false
+  }
+]
+
+router.post('/voting', function(req, res){
+  let age=req.query.age
+  
+  let elegiPerson=[]
+  for (let i=0; i<persons.length; i++){
+      if(persons[i].age>=age){
+          persons[i].votingStatus=true
+          elegiPerson.push(persons[i])
+      }
+  }
+  return res.send({persons :elegiPerson , status : true} )
+  
+})
+
+
+// optional assignment
+
+
+
+let play = [
+  {
+    "name" :"Shubham",
+     "bookingNumber":"1",
+     "dob" :"1/1/1995",
+     "gender":"male",
+     "city":"jalandhar",
+     "sports":[
+         "swimming"   ],
+    
+ "sportId": "01",
+//    "centerId : '',
+"type": "private",
+"slot": '16286598000000',
+"bookedOn":'31/08/2021',
+"bookedFor":'01/09/2021',
+  },
+  {
+      "name" :"Raj",
+       "bookingNumber":"10",
+       "dob" :"1/1/1995",
+       "gender":"male",
+       "city":"jalandhar",
+       "sports":[
+           "swimming"   ],
+      
+   "sportId": "02",
+//    "centerId : '',
+  "type": "private",
+  "slot": '16286598000000',
+  "bookedOn":'31/08/2021',
+  "bookedFor":'01/09/2021',
+    },
+    {
+      "name":"manish",
+      "bookingNumber":"2",
+      "dob" :"1/09/1995",
+      "gender": "male",
+      "city" :"delhi",
+      "sports":[
+         "soccer"
+      ],
+     
+      "sportId": "03",
+      // "centerId : '',
+     "type": "private",
+     "slot": '16286598000000',
+     "bookedOn":'31/08/2021',
+     "bookedFor":'01/09/2021',
+    },
+    
+    ]
+
+
+router.post('/playerss', function(req, res){
+
+ 
+
+   
+   let Playername = req.body.Playername
+   let Playerid   = req.body.sportId
+for(let i=0; i<play.length; i++){
+     if(play[i].name == Playername &&  play[i].bookingNumber == sportId){
+      console.log("this person is already exist")
+      return res.send("this person is already exist")
+      
+     }
+    
+}
+for(let j=0 ; j<play.length; j++){
+  if(play[j].name == Playername && play[j].bookingNumber != sportId){
+      console.log("welcome your id is generated")
+      return  res.send("wlcome your id is generated ")     
+  }
+}
+
+for(let k=0 ; k<play.length; k++){
+if(play[k].name != Playername  ){
+  console.log("sorry this name is not available in our player list")
+  return  res.send("sorry this name is already available in our player list ")     
+}
+}
+
+})
+
+
+
+
+
+
+
+
+
 
 
 
